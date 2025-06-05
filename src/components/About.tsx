@@ -35,7 +35,7 @@ const About = () => {
               <div className="absolute -inset-4 bg-gradient-to-r from-coral to-coral-light rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
               <div className="relative bg-white p-4 rounded-lg">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face"
+                  src="/image/banner.jpg"
                   alt="Andile Mnukwa - Professional Photo"
                   className="w-full h-96 object-cover rounded-lg"
                 />

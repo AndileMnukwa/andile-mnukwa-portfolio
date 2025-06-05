@@ -6,7 +6,7 @@ const Portfolio = () => {
     {
       title: 'MaestroLearn',
       description: 'AI-powered personalized learning platform that generates structured courses based on individual user needs and learning preferences, built with React and Supabase database for real-time data management.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
+      image: '/image/Maestro.png',
       tags: ['React', 'AI Integration', 'TypeScript', 'Supabase'],
       liveUrl: 'https://pathwise-ai-accelerator.lovable.app/',
       color: 'from-blue-500 to-blue-600'
@@ -14,7 +14,7 @@ const Portfolio = () => {
     {
       title: 'VibeCatcher',
       description: 'Event discovery and management platform built with React & Node.js, featuring MySQL database for data management and AI-powered sentiment analysis for enhanced user experience and event recommendations.',
-      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&h=400&fit=crop',
+      image: '/image/Vibe.png',
       tags: ['React', 'Node.js', 'MySQL', 'AI Sentiment Analysis'],
       liveUrl: 'https://ai-powered-event.vercel.app/',
       color: 'from-purple-500 to-purple-600'
@@ -22,15 +22,15 @@ const Portfolio = () => {
     {
       title: 'WeChat',
       description: 'Real-time chat application with modern web technologies, featuring instant messaging, file sharing, and user presence.',
-      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop',
-      tags: ['React', 'Socket.io', 'Express', 'Real-time'],
+      image: '/image/Chat.png',
+      tags: ['React', 'Socket.io', 'Express', 'MongoDB', 'Real-time'],
       liveUrl: 'https://chat-app-chi-livid.vercel.app/',
       color: 'from-green-500 to-green-600'
     },
     {
       title: 'IT Consulting Website',
       description: 'A comprehensive platform for IT consulting services built with HTML, CSS, and Bootstrap (not React). Features responsive design and professional service showcases for data analysis and consulting solutions.',
-      image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop',
+      image: '/image/binary.png',
       tags: ['HTML', 'CSS', 'Bootstrap', 'Responsive Design'],
       liveUrl: 'https://binarybrainsconsulting.netlify.app/',
       color: 'from-coral to-coral-light'
