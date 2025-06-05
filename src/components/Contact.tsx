@@ -47,11 +47,25 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject || 'Portfolio Contact Form Submission');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone || 'Not provided'}\n` +
+      `Subject: ${formData.subject || 'Not provided'}\n\n` +
+      `Message:\n${formData.message}`
+    );
+    
+    const mailtoLink = `mailto:andile.reeman@gmail.com?subject=${subject}&body=${body}`;
+    
+    try {
+      // Open email client
+      window.location.href = mailtoLink;
+      
       toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Email Client Opened!",
+        description: "Your default email client should open with the message pre-filled.",
       });
       
       setFormData({
@@ -62,8 +76,14 @@ const Contact = () => {
         message: ''
       });
       
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was an issue opening your email client. Please try again.",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const isFormValid = formData.name && formData.email && formData.message;
@@ -109,9 +129,20 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Map Placeholder */}
-            <div className="mt-8 bg-gray-200 rounded-lg h-48 flex items-center justify-center">
-              <p className="text-gray-blue">Interactive Map - Salt River, Cape Town</p>
+            {/* Google Maps Embed */}
+            <div className="mt-8">
+              <div className="bg-gray-100 rounded-lg overflow-hidden h-64">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.8776087684684!2d18.4654976!3d-33.9355441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5da9e064bb0d%3A0x9b3a3e1d2ae8e8b8!2sSalt%20River%2C%20Cape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2s!4v1699999999999!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Salt River, Cape Town Location"
+                ></iframe>
+              </div>
             </div>
           </div>
 
@@ -208,7 +239,7 @@ const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Sending...
+                    Opening Email...
                   </>
                 ) : (
                   <>

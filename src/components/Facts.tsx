@@ -10,14 +10,14 @@ const Facts = () => {
   const facts = [
     {
       icon: Users,
-      number: 20,
+      number: 15,
       suffix: '+',
       label: 'Satisfied Clients',
       color: 'from-blue-500 to-blue-600'
     },
     {
       icon: FolderOpen,
-      number: 15,
+      number: 20,
       suffix: '+',
       label: 'Projects Completed',
       color: 'from-green-500 to-green-600'
@@ -31,7 +31,7 @@ const Facts = () => {
     },
     {
       icon: Award,
-      number: 5,
+      number: 10,
       suffix: '+',
       label: 'Professional Certifications',
       color: 'from-purple-500 to-purple-600'

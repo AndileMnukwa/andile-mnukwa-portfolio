@@ -5,11 +5,11 @@ const Education = () => {
   const timelineItems = [
     {
       type: 'experience',
-      title: 'Full-Stack Developer',
+      title: 'Full-Stack Developer (Intern)',
       company: 'CAPACITI, UVU Africa',
       period: '2024 - 2025',
       location: 'Cape Town, South Africa',
-      description: 'Leading full-stack development projects, mentoring junior developers, and implementing modern web technologies.',
+      description: 'Built applications using React, Java, Python, and HTML while implementing modern web technologies. Actively participated in Scrum methodologies, developed strong presentation and communication skills, and collaborated effectively with cross-functional team members in an agile environment.',
       icon: Briefcase,
       color: 'bg-coral'
     },
@@ -19,7 +19,7 @@ const Education = () => {
       company: 'PAICTA',
       period: '2023 - 2024',
       location: 'Cape Town, South Africa',
-      description: 'Developed and maintained web applications, collaborated with cross-functional teams, and optimized system performance.',
+      description: 'Developed and maintained web applications while collaborating with cross-functional teams and optimizing system performance. Worked in partnership with CSIR (Council for Scientific and Industrial Research) on cybersecurity initiatives. Gained hands-on experience in CSIR laboratories learning various aspects of cyber attacks, online safety protocols, penetration testing, web hacking techniques, and conducted research on system vulnerabilities.',
       icon: Briefcase,
       color: 'bg-navy'
     },
