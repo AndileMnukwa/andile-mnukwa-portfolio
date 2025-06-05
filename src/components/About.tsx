@@ -3,7 +3,12 @@ import { MapPin, Phone, Mail, GraduationCap, Globe, Award } from 'lucide-react';
 
 const About = () => {
   const details = [
-    { icon: Globe, label: 'Website', value: '@ndilemnukwa.com' },
+    { 
+      icon: Globe, 
+      label: 'Website', 
+      value: '@ndilemnukwa.com',
+      link: 'https://portfolio-git-main-andilereeman-gmailcoms-projects.vercel.app/'
+    },
     { icon: Phone, label: 'Phone', value: '+27 65 607 1416' },
     { icon: Mail, label: 'Email', value: 'andile.reeman@gmail.com' },
     { icon: GraduationCap, label: 'Degree', value: 'Diploma in Information Technology' },
@@ -67,7 +72,18 @@ const About = () => {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-gray-blue">{detail.label}</p>
-                    <p className="text-navy-dark font-medium">{detail.value}</p>
+                    {detail.link ? (
+                      <a 
+                        href={detail.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-navy-dark font-medium hover:text-coral transition-colors duration-300"
+                      >
+                        {detail.value}
+                      </a>
+                    ) : (
+                      <p className="text-navy-dark font-medium">{detail.value}</p>
+                    )}
                   </div>
                 </div>
               ))}

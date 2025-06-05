@@ -73,13 +73,28 @@ const Navigation = () => {
 
           {/* Social Links - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a href="#" className="text-gray-blue hover:text-coral transition-colors duration-300">
+            <a 
+              href="https://www.linkedin.com/in/mnukwaandile/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-blue hover:text-coral transition-colors duration-300"
+            >
               <Linkedin size={20} />
             </a>
-            <a href="#" className="text-gray-blue hover:text-coral transition-colors duration-300">
+            <a 
+              href="https://github.com/AndileMnukwa" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-blue hover:text-coral transition-colors duration-300"
+            >
               <Github size={20} />
             </a>
-            <a href="#" className="text-gray-blue hover:text-coral transition-colors duration-300">
+            <a 
+              href="https://www.facebook.com/home.php" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-blue hover:text-coral transition-colors duration-300"
+            >
               <Facebook size={20} />
             </a>
           </div>
@@ -108,13 +123,28 @@ const Navigation = () => {
               </button>
             ))}
             <div className="flex justify-center space-x-6 pt-4 border-t">
-              <a href="#" className="text-gray-blue hover:text-coral transition-colors duration-300">
+              <a 
+                href="https://www.linkedin.com/in/mnukwaandile/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-blue hover:text-coral transition-colors duration-300"
+              >
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-gray-blue hover:text-coral transition-colors duration-300">
+              <a 
+                href="https://github.com/AndileMnukwa" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-blue hover:text-coral transition-colors duration-300"
+              >
                 <Github size={20} />
               </a>
-              <a href="#" className="text-gray-blue hover:text-coral transition-colors duration-300">
+              <a 
+                href="https://www.facebook.com/home.php" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-blue hover:text-coral transition-colors duration-300"
+              >
                 <Facebook size={20} />
               </a>
             </div>
