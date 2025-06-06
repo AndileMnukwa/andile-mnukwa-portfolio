@@ -1,7 +1,14 @@
-
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
+import emailjs from '@emailjs/browser';
+
+interface EmailJSError {
+  text?: string;
+  status?: number;
+  name?: string;
+  message?: string;
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -37,37 +44,42 @@ const Contact = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject || 'Portfolio Contact Form Submission');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone || 'Not provided'}\n` +
-      `Subject: ${formData.subject || 'Not provided'}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    
-    const mailtoLink = `mailto:andile.reeman@gmail.com?subject=${subject}&body=${body}`;
     
     try {
-      // Open email client
-      window.location.href = mailtoLink;
+      const serviceId = 'service_t7qb3sj';
+      const templateId = 'template_xyxsshg';
+      
+      const templateParams = {
+        to_name: "Andile", // Add this - who receives the email
+        from_name: formData.name,
+        reply_to: formData.email, // Change this from from_email
+        phone: formData.phone,
+        subject: formData.subject || "Portfolio Contact",
+        message: formData.message
+      };
+      
+      console.log("Sending with params:", templateParams);
+      
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams
+      );
+      
+      console.log('Success!', result);
       
       toast({
-        title: "Email Client Opened!",
-        description: "Your default email client should open with the message pre-filled.",
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll respond as soon as possible."
       });
       
+      // Clear form
       setFormData({
         name: '',
         email: '',
@@ -76,10 +88,20 @@ const Contact = () => {
         message: ''
       });
       
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error('Failed to send email:', error);
+      
+      let errorMessage = "There was a problem sending your message. Please try again.";
+      const emailError = error as EmailJSError;
+      
+      if (emailError && emailError.text) {
+        errorMessage = `Error: ${emailError.text}`;
+      }
+      
       toast({
         title: "Error",
-        description: "There was an issue opening your email client. Please try again.",
+        description: errorMessage,
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
@@ -239,7 +261,7 @@ const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Opening Email...
+                    Sending Message...
                   </>
                 ) : (
                   <>
