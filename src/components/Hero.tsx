@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Download, MessageCircle, ChevronDown } from 'lucide-react';
 
@@ -78,10 +77,15 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <button className="btn-primary flex items-center gap-2 group">
+            <a 
+              href="/Andile_Mnukwa_CV.pdf" 
+              download="Andile_Mnukwa_CV.pdf"
+              className="btn-primary flex items-center gap-2 group"
+            >
               <Download size={20} className="group-hover:animate-bounce-gentle" />
               Download CV
-            </button>
+            </a>
+            
             <button 
               onClick={() => scrollToSection('contact')}
               className="btn-outline flex items-center gap-2 group"
