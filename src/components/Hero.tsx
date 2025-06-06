@@ -41,6 +41,32 @@ const Hero = () => {
     }
   };
 
+  const handleDownloadCV = () => {
+    // Create a blob URL for the file path
+    fetch('/Andile_Mnukwa_CV.pdf')
+      .then(response => response.blob())
+      .then(blob => {
+        // Create a temporary URL for the blob
+        const url = window.URL.createObjectURL(blob);
+        
+        // Create an anchor element and set its properties
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Andile_Mnukwa_CV.pdf';
+        
+        // Append the anchor to the document, click it, and remove it
+        document.body.appendChild(a);
+        a.click();
+        
+        // Clean up
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      })
+      .catch(error => {
+        console.error('Error downloading CV:', error);
+      });
+  };
+  
   return (
     <section id="home" className="min-h-screen hero-bg flex items-center justify-center relative overflow-hidden">
       {/* Background Pattern */}
@@ -77,14 +103,13 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <a 
-              href="/Andile_Mnukwa_CV.pdf" 
-              download="Andile_Mnukwa_CV.pdf"
+            <button 
+              onClick={handleDownloadCV}
               className="btn-primary flex items-center gap-2 group"
             >
               <Download size={20} className="group-hover:animate-bounce-gentle" />
               Download CV
-            </a>
+            </button>
             
             <button 
               onClick={() => scrollToSection('contact')}
