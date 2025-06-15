@@ -16,7 +16,7 @@ const Portfolio = () => {
       description: 'Event discovery and management platform built with React & Node.js, featuring MySQL database for data management and AI-powered sentiment analysis for enhanced user experience and event recommendations.',
       image: '/image/Vibe.png',
       tags: ['React', 'Node.js', 'MySQL', 'AI Sentiment Analysis'],
-      liveUrl: 'https://ai-powered-event.vercel.app/',
+      liveUrl: 'https://vibe-catcher-reeman.lovable.app/',
       color: 'from-purple-500 to-purple-600'
     },
     {
