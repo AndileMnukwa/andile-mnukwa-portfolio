@@ -14,7 +14,7 @@ const Portfolio = () => {
     {
       title: 'VibeCatcher',
       description: 'Event discovery and management platform built with React & Node.js, featuring MySQL database for data management and AI-powered sentiment analysis for enhanced user experience and event recommendations.',
-      image: '/image/vibe.png',
+      image: '/image/Catcher.png',
       tags: ['React', 'Node.js', 'MySQL', 'AI Sentiment Analysis'],
       liveUrl: 'https://vibe-catcher-reeman.lovable.app/',
       color: 'from-purple-500 to-purple-600'
