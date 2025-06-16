@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Linkedin, Github, Facebook } from 'lucide-react';
+import { smoothScrollToSection } from '../utils/smoothScroll';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,34 +40,35 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleNavClick = (sectionId: string) => {
+    smoothScrollToSection(sectionId);
     setIsOpen(false);
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ease-out ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-xl' : 'bg-transparent'}`}>
       <div className="container-custom">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="text-2xl font-bold font-poppins text-navy-dark">
+          <div className="text-2xl font-bold font-poppins text-navy-dark transform hover:scale-105 transition-transform duration-300">
             Andile Mnukwa
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`font-medium transition-colors duration-300 hover:text-coral ${
+                onClick={() => handleNavClick(item.id)}
+                className={`font-medium transition-all duration-300 hover:text-coral relative group ${
                   activeSection === item.id ? 'text-coral' : 'text-gray-blue'
                 }`}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.label}
+                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-coral transform origin-left transition-transform duration-300 ${
+                  activeSection === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}></span>
               </button>
             ))}
           </div>
@@ -77,7 +79,7 @@ const Navigation = () => {
               href="https://www.linkedin.com/in/mnukwaandile/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-blue hover:text-coral transition-colors duration-300"
+              className="text-gray-blue hover:text-coral transition-all duration-300 transform hover:scale-125 hover:rotate-12"
             >
               <Linkedin size={20} />
             </a>
@@ -85,7 +87,7 @@ const Navigation = () => {
               href="https://github.com/AndileMnukwa" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-blue hover:text-coral transition-colors duration-300"
+              className="text-gray-blue hover:text-coral transition-all duration-300 transform hover:scale-125 hover:rotate-12"
             >
               <Github size={20} />
             </a>
@@ -93,7 +95,7 @@ const Navigation = () => {
               href="https://www.facebook.com/home.php" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-blue hover:text-coral transition-colors duration-300"
+              className="text-gray-blue hover:text-coral transition-all duration-300 transform hover:scale-125 hover:rotate-12"
             >
               <Facebook size={20} />
             </a>
@@ -102,22 +104,28 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-navy-dark hover:text-coral transition-colors duration-300"
+            className="lg:hidden text-navy-dark hover:text-coral transition-all duration-300 transform hover:scale-110"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="py-4 space-y-4 bg-white rounded-lg shadow-lg">
-            {navItems.map((item) => (
+        {/* Enhanced Mobile Navigation */}
+        <div className={`lg:hidden transition-all duration-500 ease-out overflow-hidden ${
+          isOpen ? 'max-h-96 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4'
+        }`}>
+          <div className="py-4 space-y-4 bg-white/95 backdrop-blur-md rounded-lg shadow-xl">
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-2 font-medium transition-colors duration-300 hover:text-coral ${
-                  activeSection === item.id ? 'text-coral' : 'text-gray-blue'
+                onClick={() => handleNavClick(item.id)}
+                className={`block w-full text-left px-4 py-2 font-medium transition-all duration-300 hover:text-coral transform hover:translate-x-2 ${
+                  activeSection === item.id ? 'text-coral bg-coral/10' : 'text-gray-blue'
                 }`}
+                style={{ 
+                  animationDelay: `${index * 50}ms`,
+                  transitionDelay: isOpen ? `${index * 50}ms` : '0ms'
+                }}
               >
                 {item.label}
               </button>
@@ -127,7 +135,7 @@ const Navigation = () => {
                 href="https://www.linkedin.com/in/mnukwaandile/" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-blue hover:text-coral transition-colors duration-300"
+                className="text-gray-blue hover:text-coral transition-all duration-300 transform hover:scale-125"
               >
                 <Linkedin size={20} />
               </a>
@@ -135,7 +143,7 @@ const Navigation = () => {
                 href="https://github.com/AndileMnukwa" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-blue hover:text-coral transition-colors duration-300"
+                className="text-gray-blue hover:text-coral transition-all duration-300 transform hover:scale-125"
               >
                 <Github size={20} />
               </a>
@@ -143,7 +151,7 @@ const Navigation = () => {
                 href="https://www.facebook.com/home.php" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-blue hover:text-coral transition-colors duration-300"
+                className="text-gray-blue hover:text-coral transition-all duration-300 transform hover:scale-125"
               >
                 <Facebook size={20} />
               </a>
