@@ -24,6 +24,30 @@ export default {
 				'poppins': ['Poppins', 'sans-serif'],
 			},
 			colors: {
+				// Portable color schema - works in any project
+				coral: {
+					DEFAULT: '#ff7f71',
+					light: '#ff8e87',
+					dark: '#e55a4a',
+				},
+				navy: {
+					DEFAULT: '#1a254f',
+					light: '#39406a',
+					dark: '#182142',
+				},
+				'gray-blue': {
+					DEFAULT: '#64748b',
+					light: '#94a3b8',
+					dark: '#475569',
+				},
+				'light-gray': {
+					DEFAULT: '#f9fafb',
+					50: '#f8fafc',
+					100: '#f1f5f9',
+					200: '#e2e8f0',
+				},
+				
+				// System colors (still using CSS variables for theme switching)
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -58,17 +82,6 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Custom portfolio colors
-				'coral': {
-					DEFAULT: '#ff7f71',
-					light: '#ff8e87',
-				},
-				'navy': {
-					DEFAULT: '#1a254f',
-					light: '#39406a',
-					dark: '#182142',
-				},
-				'gray-blue': '#64748b',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
