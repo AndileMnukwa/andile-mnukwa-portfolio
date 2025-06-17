@@ -56,12 +56,27 @@ const Contact = () => {
       const templateId = 'template_xyxsshg';
       
       const templateParams = {
-        to_name: "Andile", // Add this - who receives the email
+        to_name: "Andile",
         from_name: formData.name,
-        reply_to: formData.email, // Change this from from_email
-        phone: formData.phone,
-        subject: formData.subject || "Portfolio Contact",
-        message: formData.message
+        from_email: formData.email,
+        phone_number: formData.phone,
+        email_subject: formData.subject || "Portfolio Contact Form",
+        message_content: formData.message,
+        // Formatted message for better readability
+        formatted_message: `
+NEW CONTACT FORM SUBMISSION
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Subject: ${formData.subject || 'Portfolio Contact'}
+
+Message:
+${formData.message}
+
+---
+This message was sent from your portfolio contact form.
+        `
       };
       
       console.log("Sending with params:", templateParams);
