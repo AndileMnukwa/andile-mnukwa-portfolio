@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Download, MessageCircle, ChevronDown } from 'lucide-react';
 import { smoothScrollToSection } from '../utils/smoothScroll';
@@ -63,8 +62,8 @@ const Hero = () => {
   
   return (
     <section id="home" className="min-h-screen hero-bg flex items-center justify-center relative overflow-hidden">
-      {/* Simplified Background Elements */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Simplified Background Elements - Keep only 2 elements */}
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute top-32 right-32 w-64 h-64 bg-coral rounded-full animate-float-slow blur-2xl"></div>
         <div className="absolute bottom-32 left-32 w-80 h-80 bg-navy-light rounded-full animate-float-medium blur-xl opacity-60" style={{ animationDelay: '2s' }}></div>
       </div>
@@ -90,17 +89,17 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Enhanced Description with better readability */}
+          {/* Description without background card - improved text contrast */}
           <div className={`transform transition-all duration-1500 delay-600 ease-out ${showContent ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto mb-12 shadow-lg">
-              <p className="text-lg md:text-xl text-navy-dark font-medium leading-relaxed">
+            <div className="max-w-4xl mx-auto mb-12">
+              <p className="text-lg md:text-xl text-navy-dark font-semibold leading-relaxed">
                 Passionate about creating visually appealing and user-friendly digital experiences. 
                 I craft clean, efficient code and design intuitive interfaces that deliver exceptional user experiences.
               </p>
             </div>
           </div>
 
-          {/* Enhanced CTA Buttons with better visibility */}
+          {/* CTA Buttons - Hire Me back to outline style */}
           <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 transform transition-all duration-1500 delay-900 ease-out ${showContent ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <button 
               onClick={handleDownloadCV}
@@ -112,7 +111,7 @@ const Hero = () => {
             
             <button 
               onClick={() => smoothScrollToSection('contact')}
-              className="bg-coral hover:bg-coral-light text-white font-medium px-8 py-4 rounded-lg flex items-center gap-2 group transform hover:scale-110 transition-all duration-300 animate-bounce-in shadow-lg"
+              className="btn-outline flex items-center gap-2 group transform hover:scale-110 transition-all duration-300 animate-bounce-in shadow-lg"
               style={{ animationDelay: '200ms' }}
             >
               <MessageCircle size={20} className="group-hover:animate-bounce-gentle transition-transform duration-300" />
