@@ -7,7 +7,7 @@ const Portfolio = () => {
     {
       title: 'MaestroLearn',
       description: 'AI-powered personalized learning platform that generates structured courses based on individual user needs and learning preferences, built with React and Supabase database for real-time data management.',
-      image: '/image/Maestro.png',
+      image: '/image/mae.png',
       tags: ['React', 'AI Integration', 'TypeScript', 'Supabase'],
       liveUrl: 'https://pathwise-ai-accelerator.lovable.app/',
       githubUrl: 'https://github.com/AndileMnukwa/maestro-learn',
