@@ -3,6 +3,16 @@ import { Calendar, MapPin, Award, Briefcase } from 'lucide-react';
 
 const Education = () => {
   const timelineItems = [
+     {
+      type: 'experience',
+      title: 'Service Desk Analyst',
+      company: 'EXL, Ardagh Group',
+      period: 'OCTOBER 2026 - PRESENT',
+      location: 'Cape Town, South Africa',
+      description: 'Provide first-line IT support for global users across EMEA, NA, and Africa via ServiceNow, handling incidents and service requests while ensuring minimal business disruption and SLA adherence.',
+      icon: Briefcase,
+      color: 'bg-coral'
+    },
     {
       type: 'experience',
       title: 'Full-Stack Developer (Intern)',
