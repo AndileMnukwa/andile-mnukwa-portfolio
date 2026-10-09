@@ -31,9 +31,10 @@ const Education = () => {
       location: 'Cape Town, South Africa',
       description: 'Developed and maintained web applications while collaborating with cross-functional teams and optimizing system performance. Worked in partnership with CSIR (Council for Scientific and Industrial Research) on cybersecurity initiatives. Gained hands-on experience in CSIR laboratories learning various aspects of cyber attacks, online safety protocols, penetration testing, web hacking techniques, and conducted research on system vulnerabilities.',
       icon: Briefcase,
-      color: 'bg-navy'
+      color: 'bg-coral'
     },
     {
+      
       type: 'education',
       title: 'Diploma in Information Technology',
       company: 'Walter Sisulu University',
